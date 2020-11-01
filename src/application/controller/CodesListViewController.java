@@ -82,6 +82,9 @@ public class CodesListViewController {
 		bookCol.setCellValueFactory(cellData -> cellData.getValue().getBook().getTitle());
 		inUseCol.setCellValueFactory(cellData -> cellData.getValue().getInUse());
 		studentCol.setCellValueFactory(cellData -> cellData.getValue().getStudentString());
+		
+		inUseCol.setMinWidth(100);
+//		inUseCol.setResizable(false);
 
 		table.setItems(filCodes);
 		table.getColumns().addAll(codeCol, bookCol, inUseCol, studentCol);

@@ -107,6 +107,13 @@ public class NewStudentController {
 		if(idField.getText() == null || idField.getText().length() == 0) {
 			errorMessage += "No valid id!\n";
 		}
+		
+		try {
+			Long.parseLong(idField.getText());
+		} catch  (NumberFormatException e){
+			errorMessage += "ID entered is not only numeric\n";
+
+		}
 
 		if(gradeField.getText() == null || gradeField.getText().length() == 0) {
 			errorMessage += "No valid grade!\n";

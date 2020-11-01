@@ -28,6 +28,15 @@ public class WeeklyBooksListViewController {
 		dateDueCol = new TableColumn<Book, String>("Date Due");			
 		checkedOutByCol = new TableColumn<Book, String>("Checked Out By");
 		typeCol = new TableColumn<Book, String>("Type");	
+		
+		isCheckedOutCol.setMinWidth(100);
+//		isCheckedOutCol.setResizable(false);
+		
+		checkedOutByCol.setMinWidth(150);
+//		isCheckedOutCol.setResizable(false);
+		
+		dateDueCol.setMinWidth(100);
+//		dateDueCol.setResizable(false);
 
 		titleCol.setCellValueFactory(cellData -> cellData.getValue().getTitle());
 		authorCol.setCellValueFactory(cellData -> cellData.getValue().getAuthor());

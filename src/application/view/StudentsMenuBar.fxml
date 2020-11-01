@@ -8,7 +8,7 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="720.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.StudentMenuBarController">
    <children>
-      <ButtonBar maxHeight="-Infinity" maxWidth="684.0" prefHeight="60.0" prefWidth="720.0" translateX="240.0">
+      <ButtonBar buttonMinWidth="150.0" maxHeight="-Infinity" maxWidth="684.0" prefHeight="60.0" prefWidth="720.0" translateX="240.0">
         <buttons>
           <Button mnemonicParsing="false" onAction="#handleExplore" text="Explore">
                <font>
@@ -20,7 +20,7 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#handleRedeemCode" text="Redeem Code">
+            <Button mnemonicParsing="false" onAction="#handleRedeemCode" text="Redeem">
                <font>
                   <Font size="20.0" />
                </font>

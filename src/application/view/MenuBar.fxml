@@ -8,30 +8,30 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="720.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MenuBar">
    <children>
-      <ButtonBar maxHeight="-Infinity" maxWidth="684.0" prefHeight="60.0" prefWidth="720.0" translateX="240.0">
+      <ButtonBar buttonMinWidth="130.0" maxHeight="-Infinity" maxWidth="684.0" prefHeight="60.0" prefWidth="720.0" translateX="240.0">
         <buttons>
-          <Button mnemonicParsing="false" onAction="#handleBooks" text="Books">
+          <Button mnemonicParsing="false" onAction="#handleBooks" prefHeight="34.0" text="Books" textAlignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#handleStudents" text="Students">
+            <Button minWidth="150.0" mnemonicParsing="false" onAction="#handleStudents" prefWidth="150.0" text="Students" textAlignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#handleCodes" text="Codes">
+            <Button mnemonicParsing="false" onAction="#handleCodes" text="Codes" textAlignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#handleReports" text="Weekly Report">
+            <Button mnemonicParsing="false" onAction="#handleReports" text="Report" textAlignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#handleHelp" text="Help" />
-            <Button mnemonicParsing="false" onAction="#handleLogOut" text="Log Out">
+            <Button mnemonicParsing="false" onAction="#handleHelp" text="Help" textAlignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#handleLogOut" text="Log Out" textAlignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>

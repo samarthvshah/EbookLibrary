@@ -30,6 +30,10 @@ public class ClassBooksListViewController {
 		dateDueCol = new TableColumn<ClassBook, String>("Date Due");			
 		checkedOutByCol = new TableColumn<ClassBook, String>("Checked Out By");	
 		codeCol = new TableColumn<ClassBook, String>("Code");
+		
+		isCheckedOutCol.setMinWidth(100);
+		checkedOutByCol.setMinWidth(150);
+		dateDueCol.setMinWidth(100);
 
 		idCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId().get() + ""));
 		titleCol.setCellValueFactory(cellData -> cellData.getValue().getTitle());

@@ -78,6 +78,13 @@ public class StudentsListViewController {
 		idCol = new TableColumn<Student, String>("ID");			
 		bookOut1Col = new TableColumn<Student, String>("Book 1 Checked Out");
 		bookOut2Col = new TableColumn<Student, String>("Book 2 Checked Out");
+		
+		fNameCol.setMinWidth(125);
+		lNameCol.setMinWidth(125);
+		gradeCol.setMinWidth(100);
+		bookOut1Col.setMinWidth(175);
+		bookOut2Col.setMinWidth(175);
+
 
 		fNameCol.setCellValueFactory(cellData -> cellData.getValue().getFirstName());
 		lNameCol.setCellValueFactory(cellData -> cellData.getValue().getLastName());

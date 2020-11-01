@@ -19,12 +19,15 @@ import application.model.ClassBook;
 import application.model.RedemptionCode;
 import application.model.Student;
 import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -58,6 +61,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			this.primaryStage = primaryStage;
+			primaryStage.setResizable(false);
 			parser = new JSONParser();
 
 			refreshData();
@@ -158,11 +162,14 @@ public class Main extends Application {
 	 */
 	public boolean showHelpWindow(String s) {
 		Stage dialogStage = new Stage();
+		dialogStage.setResizable(false);
 		dialogStage.setTitle("Help"); //Sets title to Edit Member
 		dialogStage.initModality(Modality.WINDOW_MODAL);
 		dialogStage.initOwner(primaryStage);
 		
 		TextArea text = new TextArea(s);
+		text.setEditable(false);
+		text.setMinSize(400, 400);
 		text.setWrapText(true);
 		BorderPane pane = new BorderPane();
 		pane.setTop(text);
@@ -217,6 +224,33 @@ public class Main extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class.getResource("view/NewCodesScene.fxml"));
 			AnchorPane page = (AnchorPane) loader.load();
+			
+			Stage booksStage = new Stage();
+			booksStage.setTitle("ClassBooks");
+			booksStage.initModality(Modality.WINDOW_MODAL);
+			booksStage.initOwner(primaryStage);
+			
+			TableView<ClassBook> table = new TableView<ClassBook>();
+			TableColumn<ClassBook, String> idCol = new TableColumn<ClassBook, String>("ID");
+			TableColumn<ClassBook, String> titleCol = new TableColumn<ClassBook, String>("Title");
+			
+			idCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId().get() + ""));
+			titleCol.setCellValueFactory(cellData -> cellData.getValue().getTitle());
+			
+			ObservableList<ClassBook> classBooksList = FXCollections.observableArrayList();  
+			for (ClassBook b: classBooks) {
+				classBooksList.add(b);
+			}
+			
+			table.setItems(classBooksList);
+			table.getColumns().addAll(idCol, titleCol);
+			
+			Scene scene1 = new Scene(table);
+			scene1.getStylesheets().add(getClass().getResource("view/application.css").toExternalForm());
+			booksStage.setScene(scene1);
+			booksStage.setX(50);
+			booksStage.setY(50);
+
 
 			Stage dialogStage = new Stage();
 			dialogStage.setTitle("New Code"); //Sets title to Edit Member
@@ -227,8 +261,11 @@ public class Main extends Application {
 
 			NewCodeController controller = loader.getController();
 			if (controller.setFields(this, dialogStage, parser)) {
+				booksStage.show();
 				dialogStage.showAndWait();
 			}
+			
+			booksStage.close();
 
 			manageScene.switchToCodes();
 

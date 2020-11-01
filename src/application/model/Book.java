@@ -35,7 +35,7 @@ public class Book {
 		title =  new SimpleStringProperty(t);
 		author =  new SimpleStringProperty(a);
 		isbn = new SimpleIntegerProperty(i);
-
+		
 		if (c) {
 			isCheckedOut = new SimpleBooleanProperty(true);
 			dateCheckedOut = d;
@@ -56,6 +56,7 @@ public class Book {
 		if (!isCheckedOut.get()) {
 			isCheckedOut.set(true);
 
+			//Sets the data due to 3 weeks from the day of check out
 			LocalDate today = LocalDate.now();
 			dateCheckedOut = today.plus(3, ChronoUnit.WEEKS);		
 
@@ -127,6 +128,21 @@ public class Book {
 		if (isCheckedOut.get()) {
 			LocalDate today = LocalDate.now();
 			return today.isAfter(dateCheckedOut.minusWeeks(1));
+		} else {
+			return false;
+		}
+	}
+	
+	/** Checks if a book is due in a week some number in the future
+	 * 
+	 * @param numOfWeeks The number of weeks in advance that you are checking for
+	 * @return If the due date is in the week that is given
+	 */
+	public boolean dueInNumberOfWeeksInAdvance(LocalDate d) {
+		if (isCheckedOut.get()) {
+//			LocalDate checker = LocalDate.now();
+//			checker = checker.plusWeeks(numOfWeeks);
+			return d.isAfter(dateCheckedOut.minusWeeks(1));
 		} else {
 			return false;
 		}

@@ -38,6 +38,16 @@ public class BooksListViewController {
 		isCheckedOutCol = new TableColumn<Book, Boolean>("Available");
 		dateDueCol = new TableColumn<Book, String>("Date Due");			
 		checkedOutByCol = new TableColumn<Book, String>("Checked Out By");	
+		
+		isCheckedOutCol.setMinWidth(100);
+//		isCheckedOutCol.setResizable(false);
+		
+		checkedOutByCol.setMinWidth(150);
+//		isCheckedOutCol.setResizable(false);
+		
+		dateDueCol.setMinWidth(100);
+//		dateDueCol.setResizable(false);
+
 
 		idCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId().get() + ""));
 		titleCol.setCellValueFactory(cellData -> cellData.getValue().getTitle());
